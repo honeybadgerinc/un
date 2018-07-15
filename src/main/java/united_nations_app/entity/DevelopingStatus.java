@@ -10,7 +10,7 @@ public class DevelopingStatus {
     @Column(name = "id")
     private Integer id;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "is_developed")
     private boolean isDeveloped;
 
     public Integer getId() {

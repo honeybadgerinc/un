@@ -15,6 +15,11 @@ public class CountryOrArea {
     @Column(unique = true)
     private Integer m49Code;
 
+    @NotNull
+    @Immutable
+    @Column(unique = true)
+    private String name;
+
     @Column(unique = true)
     @Length(max = 3, min = 3)
     private String alpha3Code;
@@ -29,42 +34,50 @@ public class CountryOrArea {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "small_island_developing_status")
-    private SmallIslandDevelopingStates smallIslandDevelopingStates;
+    private SmallIslandDevelopingStateStatus smallIslandDevelopingStateStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sub_region_code")
     private SubRegion subRegion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "landlocked_developed_countries")
-    private LandLockedDevelopedCountries landLockedDevelopedCountries;
+    @JoinColumn(name = "landlocked_developed_country_status")
+    private LandLockedDevelopedCountryStatus landLockedDevelopedCountryStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "least_developed_countries")
-    private LeastDevelopedCountries leastDevelopedCountries;
+    @JoinColumn(name = "least_developed_country_status")
+    private LeastDevelopedCountryStatus leastDevelopedCountryStatus;
 
-    public LeastDevelopedCountries getLeastDevelopedCountries() {
-        return leastDevelopedCountries;
+    public String getName() {
+        return name;
     }
 
-    public void setLeastDevelopedCountries(LeastDevelopedCountries leastDevelopedCountries) {
-        this.leastDevelopedCountries = leastDevelopedCountries;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public LandLockedDevelopedCountries getLandLockedDevelopedCountries() {
-        return landLockedDevelopedCountries;
+    public LeastDevelopedCountryStatus getLeastDevelopedCountryStatus() {
+        return leastDevelopedCountryStatus;
     }
 
-    public void setLandLockedDevelopedCountries(LandLockedDevelopedCountries landLockedDevelopedCountries) {
-        this.landLockedDevelopedCountries = landLockedDevelopedCountries;
+    public void setLeastDevelopedCountryStatus(LeastDevelopedCountryStatus leastDevelopedCountryStatus) {
+        this.leastDevelopedCountryStatus = leastDevelopedCountryStatus;
     }
 
-    public SmallIslandDevelopingStates getSmallIslandDevelopingStates() {
-        return smallIslandDevelopingStates;
+    public LandLockedDevelopedCountryStatus getLandLockedDevelopedCountryStatus() {
+        return landLockedDevelopedCountryStatus;
     }
 
-    public void setSmallIslandDevelopingStates(SmallIslandDevelopingStates smallIslandDevelopingStates) {
-        this.smallIslandDevelopingStates = smallIslandDevelopingStates;
+    public void setLandLockedDevelopedCountryStatus(LandLockedDevelopedCountryStatus landLockedDevelopedCountryStatus) {
+        this.landLockedDevelopedCountryStatus = landLockedDevelopedCountryStatus;
+    }
+
+    public SmallIslandDevelopingStateStatus getSmallIslandDevelopingStateStatus() {
+        return smallIslandDevelopingStateStatus;
+    }
+
+    public void setSmallIslandDevelopingStateStatus(SmallIslandDevelopingStateStatus smallIslandDevelopingStateStatus) {
+        this.smallIslandDevelopingStateStatus = smallIslandDevelopingStateStatus;
     }
 
     public DevelopingStatus getDevelopingStatus() {

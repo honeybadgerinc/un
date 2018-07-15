@@ -3,14 +3,14 @@ package united_nations_app.entity;
 import javax.persistence.*;
 
 @Entity
-public class SmallIslandDevelopingStates {
+public class SmallIslandDevelopingStateStatus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "is_small_island_developing")
     private boolean isSmallIslandDeveloping;
 
     public Integer getId() {
